@@ -1,4 +1,4 @@
-const API_URL = "https://github.com/abhash-tiwari/chat-app"
+const API_URL = "https://chat-app-hqbe.onrender.com"
 
 export const api = {
   async signup(data) {
