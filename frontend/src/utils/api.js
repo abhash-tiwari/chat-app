@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000"
+const API_URL = "https://github.com/abhash-tiwari/chat-app"
 
 export const api = {
   async signup(data) {

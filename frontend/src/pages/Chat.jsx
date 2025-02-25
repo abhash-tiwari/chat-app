@@ -61,9 +61,17 @@ export const Chat = () => {
       );
     });
 
+    // return () => {
+    //   socket.disconnect();
+    // };
+
     return () => {
+      socket.off('message');
+      socket.off('userOnline');
+      socket.off('userOffline');
       socket.disconnect();
     };
+    
   }, []);
 
   useEffect(() => {
@@ -85,6 +93,12 @@ export const Chat = () => {
       console.error('Failed to fetch users:', error);
     }
   };
+
+  useEffect(() => {
+    const timeoutId = setTimeout(fetchUsers, 500);
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery]);
+  
 
   const fetchMessageHistory = async () => {
     try {
